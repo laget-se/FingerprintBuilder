@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <package >
   <metadata>
-    <id>FingerprintBuilder</id>
+    <id>laget.FingerprintBuilder</id>
     <version>$version$</version>
     <title>FingerprintBuilder</title>
     <authors>gonace</authors>
