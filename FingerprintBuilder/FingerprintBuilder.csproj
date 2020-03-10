@@ -6,12 +6,28 @@
     <RootNamespace>FingerprintBuilder</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Model.Fingerprint</PackageId>
-    <Authors>gonace</Authors>
+    <Authors>gonace,laget.se</Authors>
     <Company>laget.se</Company>
     <PackageProjectUrl>https://github.com/laget-se/FingerprintBuilder</PackageProjectUrl>
     <icon>https://raw.githubusercontent.com/laget-se/FingerprintBuilder/master/assets/icon.png</icon>
     <Product>Model.Fingerprint</Product>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/laget-se/FingerprintBuilder</RepositoryUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageIconUrl />
+    <RepositoryType>git</RepositoryType>
+    <Description />
+    <PackageTags>hash;fingerprint</PackageTags>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\assets\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

@@ -30,7 +30,7 @@ namespace FingerprintBuilder.Tests
                 .Create(SHA1.Create().ComputeHash)
                 .For(p => p.Firstname)
                 .For(p => p.Lastname)
-                .For(p => p.Emails, emails => string.Join('|', emails))
+                .For(p => p.Emails, emails => string.Join("|", emails))
                 .Build();
 
             var user = new ExtendedUser { Firstname = "John", Lastname = "Smith", Emails = new[] { "test@test.com", "test1@test.com" } };
