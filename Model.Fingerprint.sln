@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FingerprintBuilder", "FingerprintBuilder\FingerprintBuilder.csproj", "{DA524583-7373-4937-B9C4-D56588CB1889}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model.Fingerprint", "Model.Fingerprint\Model.Fingerprint.csproj", "{DA524583-7373-4937-B9C4-D56588CB1889}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FingerprintBuilder.Tests", "FingerprintBuilder.Tests\FingerprintBuilder.Tests.csproj", "{235487E9-E435-4B7C-8F1F-1F4C054BEB68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model.Fingerprint.Tests", "Model.Fingerprint.Tests\Model.Fingerprint.Tests.csproj", "{235487E9-E435-4B7C-8F1F-1F4C054BEB68}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{49A3A8EA-D521-4DC6-A210-2DAE7C1D1345}"
 	ProjectSection(SolutionItems) = preProject

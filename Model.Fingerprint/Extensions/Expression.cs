@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace FingerprintBuilder
+namespace Model.Fingerprint.Extensions
 {
     public static class Expression
     {

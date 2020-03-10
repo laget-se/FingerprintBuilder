@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 
-namespace FingerprintBuilder.Stores
+namespace Model.Fingerprint.Stores
 {
     public class MemoryStore : IStore
     {
