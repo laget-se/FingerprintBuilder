@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.0;netcoreapp2.1;net48;net472;net462</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;netcoreapp2.1;net48;net472;net462</TargetFrameworks>
     <AssemblyName>Model.Fingerprint</AssemblyName>
     <RootNamespace>Fingerprint</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -14,13 +14,12 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/laget-se/Model.Fingerprint</RepositoryUrl>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageIconUrl />
     <RepositoryType>git</RepositoryType>
     <Description>Calculates a fingerprint (hash) for an object that can be stored in Memory or a persistent data store.</Description>
     <PackageTags>hash;fingerprint</PackageTags>
-    <AssemblyVersion>1.0.0.2</AssemblyVersion>
-    <FileVersion>1.0.0.2</FileVersion>
-    <Version>1.0.0.2</Version>
+    <AssemblyVersion>1.0.0.124</AssemblyVersion>
+    <FileVersion>1.0.0.124</FileVersion>
+    <Version>1.0.0.124</Version>
   </PropertyGroup>
 
   <ItemGroup>
