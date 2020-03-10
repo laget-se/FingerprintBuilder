@@ -3,7 +3,7 @@
   <metadata>
     <id>Model.Fingerprint</id>
     <title>Fingerprint</title>
-    <version>1.0.1</version>
+    <version>$version$</version>
     <authors>gonace,laget.se</authors>
     <owners>laget.se</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

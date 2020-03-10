@@ -4,7 +4,7 @@
     <TargetFrameworks>netcoreapp3.1;netcoreapp2.1;net48;net472;net462</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <AssemblyName>Model.Fingerprint.Tests</AssemblyName>
-    <RootNamespace>Model.Fingerprint.Tests</RootNamespace>
+    <RootNamespace>Fingerprint.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq;
 
-namespace Model.Fingerprint.Extensions
+namespace Fingerprint.Extensions
 {
     public static class String
     {

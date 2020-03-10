@@ -1,4 +1,4 @@
-﻿namespace Model.Fingerprint.Tests.Models
+﻿namespace Fingerprint.Tests.Models
 {
     public class User
     {

@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq.Expressions;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace Model.Fingerprint
+namespace Fingerprint
 {
     public interface IFingerprintBuilder<T>
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Model.Fingerprint.Stores
+namespace Fingerprint.Stores
 {
     public interface IStore
     {

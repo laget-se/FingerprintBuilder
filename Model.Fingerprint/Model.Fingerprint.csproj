@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;netcoreapp2.1;net48;net472;net462</TargetFrameworks>
     <AssemblyName>Model.Fingerprint</AssemblyName>
-    <RootNamespace>Model.Fingerprint</RootNamespace>
+    <RootNamespace>Fingerprint</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Model.Fingerprint</PackageId>
     <Authors>gonace,laget.se</Authors>

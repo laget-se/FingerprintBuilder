@@ -1,9 +1,9 @@
 ﻿using System.Security.Cryptography;
-using Model.Fingerprint.Extensions;
-using Model.Fingerprint.Tests.Models;
+using Fingerprint.Extensions;
+using Fingerprint.Tests.Models;
 using Xunit;
 
-namespace Model.Fingerprint.Tests
+namespace Fingerprint.Tests
 {
     public class SimpleFingerprintBuilderTests
     {

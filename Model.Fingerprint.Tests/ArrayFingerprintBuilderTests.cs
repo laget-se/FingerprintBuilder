@@ -1,16 +1,16 @@
 ﻿using System.Security.Cryptography;
-using Model.Fingerprint.Extensions;
-using Model.Fingerprint.Tests.Models;
+using Fingerprint.Extensions;
+using Fingerprint.Tests.Models;
 using Xunit;
 
-namespace Model.Fingerprint.Tests
+namespace Fingerprint.Tests
 {
     public class ArrayFingerprintBuilderTests
     {
         [Fact]
         public void UserInfo_Sha1()
         {
-            var fingerprint = FingerprintBuilder<ExtendedUser>
+            var fingerprint = Fingerprint.FingerprintBuilder<ExtendedUser>
                 .Create(SHA1.Create().ComputeHash)
                 .For(p => p.Firstname)
                 .For(p => p.Lastname)
