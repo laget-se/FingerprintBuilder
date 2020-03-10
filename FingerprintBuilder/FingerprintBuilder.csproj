@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;netcoreapp2.1;net472;net462</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;netcoreapp2.1;net48;net472;net462</TargetFrameworks>
     <AssemblyName>FingerprintBuilder</AssemblyName>
     <RootNamespace>FingerprintBuilder</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
