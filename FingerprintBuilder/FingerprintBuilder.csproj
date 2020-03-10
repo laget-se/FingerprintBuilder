@@ -5,10 +5,11 @@
     <AssemblyName>FingerprintBuilder</AssemblyName>
     <RootNamespace>FingerprintBuilder</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>laget.FingerprintBuilder</PackageId>
+    <PackageId>Model.Fingerprint</PackageId>
     <Authors>gonace</Authors>
     <Company>laget.se</Company>
     <PackageProjectUrl>https://github.com/laget-se/FingerprintBuilder</PackageProjectUrl>
+    <Product>Model.Fingerprint</Product>
   </PropertyGroup>
 
 </Project>
