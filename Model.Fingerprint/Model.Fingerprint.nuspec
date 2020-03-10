@@ -14,8 +14,8 @@
     <icon>assets\icon.png</icon>
     <repository type="git" url="https://github.com/laget-se/Model.Fingerprint" branch="master" />
     <dependencies>
-      <group targetFramework="netstandard2.1"></group>
-      <group targetFramework="netstandard2.0"></group>
+      <group targetFramework="netcoreapp3.0"></group>
+      <group targetFramework="netcoreapp2.1"></group>
       <group targetFramework=".NETFramework4.8"></group>
       <group targetFramework=".NETFramework4.7.2"></group>
       <group targetFramework=".NETFramework4.6.2"></group>
