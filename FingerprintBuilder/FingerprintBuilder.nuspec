@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>Model.FingerprintBuilder</id>
-    <title>FingerprintBuilder</title>
+    <id>Model.Fingerprint</id>
+    <title>Fingerprint</title>
     <version>1.0.1</version>
     <authors>gonace,laget.se</authors>
     <owners>laget.se</owners>
