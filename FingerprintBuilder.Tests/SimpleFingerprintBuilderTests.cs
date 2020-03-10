@@ -1,6 +1,5 @@
 ﻿using System.Security.Cryptography;
-using Intercom.Service.FingerprintBuilder;
-using Intercom.Service.FingerprintBuilder.Tests.Models;
+using FingerprintBuilder.Tests.Models;
 using Xunit;
 
 namespace FingerprintBuilder.Tests

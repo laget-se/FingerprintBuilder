@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Intercom.Service.FingerprintBuilder
+namespace FingerprintBuilder
 {
     public static class FingerprintBuilderExtensions
     {

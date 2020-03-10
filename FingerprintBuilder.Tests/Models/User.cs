@@ -1,4 +1,4 @@
-﻿namespace Intercom.Service.FingerprintBuilder.Tests.Models
+﻿namespace FingerprintBuilder.Tests.Models
 {
     public class User
     {
