@@ -9,7 +9,7 @@
     <Authors>gonace</Authors>
     <Company>laget.se</Company>
     <PackageProjectUrl>https://github.com/laget-se/FingerprintBuilder</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/laget-se/FingerprintBuilder/master/src/assets/icon.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/laget-se/FingerprintBuilder/master/assets/icon.png</PackageIconUrl>
     <Product>Model.Fingerprint</Product>
   </PropertyGroup>
 
