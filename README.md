@@ -1,6 +1,7 @@
 ﻿# FingerprintBuilder
+Calculates a fingerprint (hash) for an object that can be stored in Memory or a persistent data store.
 
-## Examples
+## Usage
 ```c#
 public class User
 {

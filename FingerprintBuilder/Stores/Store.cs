@@ -1,6 +1,10 @@
-﻿namespace FingerprintBuilder.Stores
+﻿using System;
+
+namespace FingerprintBuilder.Stores
 {
-    public class Store
+    public interface IStore
     {
+        void Add(DateTime dateTime);
+        void Remove(DateTime dateTime);
     }
 }
