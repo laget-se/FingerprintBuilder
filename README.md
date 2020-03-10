@@ -1,7 +1,7 @@
 ﻿# FingerprintBuilder
 
 ## Examples
-```
+```c#
 public class User
 {
     readonly Func<User, byte[]> _fingerprintBuilder;
