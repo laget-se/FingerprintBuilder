@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;netcoreapp2.1;net48;net472;net462</TargetFrameworks>
     <IsPackable>false</IsPackable>
-    <AssemblyName>Model.Fingerprint.Tests</AssemblyName>
-    <RootNamespace>Fingerprint.Tests</RootNamespace>
+    <AssemblyName>laget.Fingerprint.Tests</AssemblyName>
+    <RootNamespace>laget.Fingerprint.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Model.Fingerprint\Model.Fingerprint.csproj" />
+    <ProjectReference Include="..\Model.Fingerprint\laget.Fingerprint.csproj" />
   </ItemGroup>
 
 </Project>

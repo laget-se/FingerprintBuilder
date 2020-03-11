@@ -2,24 +2,24 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;netcoreapp2.1;net48;net472;net462</TargetFrameworks>
-    <AssemblyName>Model.Fingerprint</AssemblyName>
-    <RootNamespace>Fingerprint</RootNamespace>
+    <AssemblyName>laget.Fingerprint</AssemblyName>
+    <RootNamespace>laget.Fingerprint</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>Model.Fingerprint</PackageId>
+    <PackageId>laget.Fingerprint</PackageId>
     <Authors>gonace,laget.se</Authors>
     <Company>laget.se</Company>
-    <PackageProjectUrl>https://github.com/laget-se/Model.Fingerprint</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/laget-se/Fingerprint</PackageProjectUrl>
     <Icon>https://raw.githubusercontent.com/laget-se/Model.Fingerprint/master/assets/icon.png</Icon>
-    <Product>Model.Fingerprint</Product>
+    <Product>laget.Fingerprint</Product>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/laget-se/Model.Fingerprint</RepositoryUrl>
+    <RepositoryUrl>https://github.com/laget-se/Fingerprint</RepositoryUrl>
     <PackageIcon>icon.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
     <Description>Calculates a fingerprint (hash) for an object that can be stored in Memory or a persistent data store.</Description>
     <PackageTags>hash;fingerprint</PackageTags>
     <AssemblyVersion>1.0.0.124</AssemblyVersion>
     <FileVersion>1.0.0.124</FileVersion>
-    <Version>1.0.0.124</Version>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
