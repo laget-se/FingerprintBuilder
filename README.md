@@ -1,4 +1,4 @@
-﻿# Model.Fingerprint
+﻿# laget.Fingerprint
 Calculates a fingerprint (hash) for an object that can be stored in Memory or a persistent data store.
 
 ## Usage
