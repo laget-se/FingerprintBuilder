@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Model.Fingerprint\laget.Fingerprint.csproj" />
+    <ProjectReference Include="..\Fingerprint\laget.Fingerprint.csproj" />
   </ItemGroup>
 
 </Project>
