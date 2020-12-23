@@ -2,6 +2,7 @@
 Calculates a fingerprint (hash) for an object that can be stored in Memory or a persistent data store.
 
 ![Nuget](https://img.shields.io/nuget/v/laget.Fingerprint)
+![Nuget](https://img.shields.io/nuget/dt/laget.Fingerprint)
 
 ## Usage
 ```c#
