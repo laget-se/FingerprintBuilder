@@ -1,10 +1,10 @@
-﻿using System;
-
-namespace Fingerprint.Stores
+﻿namespace laget.Fingerprint.Stores
 {
     public interface IStore
     {
-        void Add(DateTime dateTime);
-        void Remove(DateTime dateTime);
+        void Add(Models.Fingerprint model);
+        Models.Fingerprint Get(string hash);
+        void Remove(string hash);
+        bool Exists(string hash);
     }
 }

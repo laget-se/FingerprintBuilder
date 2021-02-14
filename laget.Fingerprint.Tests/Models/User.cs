@@ -1,4 +1,4 @@
-﻿namespace Fingerprint.Tests.Models
+﻿namespace laget.Fingerprint.Tests.Models
 {
     public class User
     {

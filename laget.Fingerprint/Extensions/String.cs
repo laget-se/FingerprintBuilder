@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq;
 
-namespace Fingerprint.Extensions
+namespace laget.Fingerprint.Extensions
 {
     public static class String
     {
@@ -25,7 +25,7 @@ namespace Fingerprint.Extensions
         /// <summary>
         ///     Convert to string
         /// </summary>
-        static string ToString(this byte[] source, string format)
+        private static string ToString(this byte[] source, string format)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));

@@ -1,9 +1,9 @@
 ﻿using System.Security.Cryptography;
-using Fingerprint.Extensions;
-using Fingerprint.Tests.Models;
+using laget.Fingerprint.Extensions;
+using laget.Fingerprint.Tests.Models;
 using Xunit;
 
-namespace Fingerprint.Tests
+namespace laget.Fingerprint.Tests
 {
     public class SimpleFingerprintBuilderTests
     {
@@ -20,7 +20,7 @@ namespace Fingerprint.Tests
 
             var hash = fingerprint(user).ToLowerHexString();
 
-            Assert.Equal("bfe2cb034d9448e66f642506e6370dd87bbbe0e0", hash);
+            Assert.Equal((string) "bfe2cb034d9448e66f642506e6370dd87bbbe0e0", (string) hash);
         }
 
         [Fact]
@@ -38,13 +38,13 @@ namespace Fingerprint.Tests
 
             var hash = fingerprint(user).ToLowerHexString();
 
-            Assert.Equal(expectedHash, hash);
+            Assert.Equal((string) expectedHash, (string) hash);
 
             user.Firstname = user.Firstname.ToLowerInvariant();
             user.Lastname = user.Lastname.ToLowerInvariant();
 
             var hash1 = fingerprint(user).ToLowerHexString();
-            Assert.Equal(expectedHash, hash1);
+            Assert.Equal((string) expectedHash, (string) hash1);
         }
 
         [Fact]
@@ -61,8 +61,8 @@ namespace Fingerprint.Tests
             var hashLower = fingerprint(user).ToLowerHexString();
             var hashUpper = fingerprint(user).ToUpperHexString();
 
-            Assert.Equal("9996c4bbc1da4938144886b27b7c680e75932b5a56d911754d75ae4e0a9b4f1a", hashLower);
-            Assert.Equal("9996c4bbc1da4938144886b27b7c680e75932b5a56d911754d75ae4e0a9b4f1a".ToUpperInvariant(), hashUpper);
+            Assert.Equal((string) "9996c4bbc1da4938144886b27b7c680e75932b5a56d911754d75ae4e0a9b4f1a", (string) hashLower);
+            Assert.Equal("9996c4bbc1da4938144886b27b7c680e75932b5a56d911754d75ae4e0a9b4f1a".ToUpperInvariant(), (string) hashUpper);
         }
 
         [Fact]
@@ -80,13 +80,13 @@ namespace Fingerprint.Tests
 
             var hash = fingerprint(user).ToLowerHexString();
 
-            Assert.Equal(expectedHash, hash);
+            Assert.Equal((string) expectedHash, (string) hash);
 
             user.Firstname = user.Firstname.ToLowerInvariant();
             user.Lastname = user.Lastname.ToLowerInvariant();
 
             var hash1 = fingerprint(user).ToLowerHexString();
-            Assert.Equal(expectedHash, hash1);
+            Assert.Equal((string) expectedHash, (string) hash1);
         }
 
         [Fact]
@@ -103,8 +103,8 @@ namespace Fingerprint.Tests
             var hashLower = fingerprint(user).ToLowerHexString();
             var hashUpper = fingerprint(user).ToUpperHexString();
 
-            Assert.Equal("628aa41f90dac147e4366e7fd9ce68ffb9d8a73b7a6e502e8f9353909a4248786f2cfa2b192588e89cb20561006a3d41a360732eb1b8a802f44621a7cea39112", hashLower);
-            Assert.Equal("628aa41f90dac147e4366e7fd9ce68ffb9d8a73b7a6e502e8f9353909a4248786f2cfa2b192588e89cb20561006a3d41a360732eb1b8a802f44621a7cea39112".ToUpperInvariant(), hashUpper);
+            Assert.Equal((string) "628aa41f90dac147e4366e7fd9ce68ffb9d8a73b7a6e502e8f9353909a4248786f2cfa2b192588e89cb20561006a3d41a360732eb1b8a802f44621a7cea39112", (string) hashLower);
+            Assert.Equal("628aa41f90dac147e4366e7fd9ce68ffb9d8a73b7a6e502e8f9353909a4248786f2cfa2b192588e89cb20561006a3d41a360732eb1b8a802f44621a7cea39112".ToUpperInvariant(), (string) hashUpper);
         }
 
         [Fact]
@@ -120,7 +120,7 @@ namespace Fingerprint.Tests
 
             var hash = fingerprint(user).ToLowerHexString();
 
-            Assert.Equal("5ab5aeba11346413348fb7c9361058e016ecf3ca", hash);
+            Assert.Equal((string) "5ab5aeba11346413348fb7c9361058e016ecf3ca", (string) hash);
         }
     }
 }

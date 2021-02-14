@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace Fingerprint.Extensions
+namespace laget.Fingerprint.Extensions
 {
     public static class Expression
     {

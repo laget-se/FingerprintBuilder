@@ -1,24 +1,43 @@
 ﻿using System;
 using System.Collections.Concurrent;
 
-namespace Fingerprint.Stores
+namespace laget.Fingerprint.Stores
 {
     public class MemoryStore : IStore
     {
-        readonly ConcurrentDictionary<DateTime, DateTime> _dictionary;
+        private readonly ConcurrentDictionary<string, Models.Fingerprint> _dictionary;
 
         public MemoryStore()
         {
-            _dictionary = new ConcurrentDictionary<DateTime, DateTime>();
+            _dictionary = new ConcurrentDictionary<string, Models.Fingerprint>();
         }
-        public void Add(DateTime dateTime)
+        public void Add(Models.Fingerprint model)
         {
-            _dictionary.TryAdd(dateTime, dateTime);
+            _dictionary.TryAdd(model.Hash, model);
         }
 
-        public void Remove(DateTime dateTime)
+        public Models.Fingerprint Get(string hash)
         {
-            _dictionary.TryRemove(dateTime, out _);
+            try
+            {
+                _dictionary.TryGetValue(hash, out var fingerprint);
+
+                return fingerprint;
+            }
+            catch (ArgumentNullException)
+            {
+                return null;
+            }
+        }
+
+        public void Remove(string hash)
+        {
+            _dictionary.TryRemove(hash, out _);
+        }
+
+        public bool Exists(string hash)
+        {
+            return _dictionary.ContainsKey(hash);
         }
     }
 }

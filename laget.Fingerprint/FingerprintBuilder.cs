@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq.Expressions;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace Fingerprint
+namespace laget.Fingerprint
 {
     public interface IFingerprintBuilder<T>
     {
@@ -19,9 +19,9 @@ namespace Fingerprint
 
     public class FingerprintBuilder<T> : IFingerprintBuilder<T>
     {
-        readonly Func<byte[], byte[]> _computeHash;
+        private readonly Func<byte[], byte[]> _computeHash;
 
-        readonly IDictionary<string, Func<T, object>> _fingerprints;
+        private readonly IDictionary<string, Func<T, object>> _fingerprints;
 
         internal FingerprintBuilder(Func<byte[], byte[]> computeHash)
         {
@@ -43,7 +43,7 @@ namespace Fingerprint
             return For<TProperty, TProperty>(expression, fingerprint);
         }
 
-        IFingerprintBuilder<T> For<TProperty, TPropertyType>(Expression<Func<T, TProperty>> expression, Expression<Func<TProperty, TPropertyType>> fingerprint)
+        private IFingerprintBuilder<T> For<TProperty, TPropertyType>(Expression<Func<T, TProperty>> expression, Expression<Func<TProperty, TPropertyType>> fingerprint)
         {
             if (!(expression.Body is MemberExpression memberExpression))
                 throw new ArgumentException("Expression must be a member expression");

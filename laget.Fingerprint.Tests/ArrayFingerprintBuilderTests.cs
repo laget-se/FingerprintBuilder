@@ -1,16 +1,16 @@
 ﻿using System.Security.Cryptography;
-using Fingerprint.Extensions;
-using Fingerprint.Tests.Models;
+using laget.Fingerprint.Extensions;
+using laget.Fingerprint.Tests.Models;
 using Xunit;
 
-namespace Fingerprint.Tests
+namespace laget.Fingerprint.Tests
 {
     public class ArrayFingerprintBuilderTests
     {
         [Fact]
         public void UserInfo_Sha1()
         {
-            var fingerprint = Fingerprint.FingerprintBuilder<ExtendedUser>
+            var fingerprint = FingerprintBuilder<ExtendedUser>
                 .Create(SHA1.Create().ComputeHash)
                 .For(p => p.Firstname)
                 .For(p => p.Lastname)
@@ -21,7 +21,7 @@ namespace Fingerprint.Tests
 
             var hash = fingerprint(user).ToLowerHexString();
 
-            Assert.Equal("910247a24d302fbea05d2699ed73ce6c351743f1", hash);
+            Assert.Equal((string) "910247a24d302fbea05d2699ed73ce6c351743f1", (string) hash);
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace Fingerprint.Tests
 
             var hash = fingerprint(user).ToLowerHexString();
 
-            Assert.Equal("307de22ecb4eb4c4825cac107d891838dc6c86a7", hash);
+            Assert.Equal((string) "307de22ecb4eb4c4825cac107d891838dc6c86a7", (string) hash);
         }
     }
 }
