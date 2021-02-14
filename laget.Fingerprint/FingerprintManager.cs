@@ -1,12 +1,12 @@
-﻿using laget.Fingerprint.Models;
+﻿using laget.Fingerprint.Interfaces;
 using laget.Fingerprint.Stores;
 
 namespace laget.Fingerprint
 {
     public interface IFingerprintManager<in T> where T : IFingerprintable
     {
-        void Add(Models.Fingerprint model);
-        Models.Fingerprint Get(string hash);
+        void Add(IFingerprint model);
+        IFingerprint Get(string hash);
         void Remove(string hash);
         bool Exists(string hash);
     }
@@ -20,12 +20,12 @@ namespace laget.Fingerprint
             _store = store;
         }
 
-        public void Add(Models.Fingerprint model)
+        public void Add(IFingerprint model)
         {
             _store.Add(model);
         }
 
-        public Models.Fingerprint Get(string hash)
+        public IFingerprint Get(string hash)
         {
             return _store.Get(hash);
         }

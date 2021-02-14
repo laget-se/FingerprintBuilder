@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using laget.Fingerprint.Interfaces;
 
 namespace laget.Fingerprint.Stores
 {
     public class MemoryStore : IStore
     {
-        private readonly ConcurrentDictionary<string, Models.Fingerprint> _dictionary;
+        private readonly ConcurrentDictionary<string, IFingerprint> _dictionary;
 
         public MemoryStore()
         {
-            _dictionary = new ConcurrentDictionary<string, Models.Fingerprint>();
+            _dictionary = new ConcurrentDictionary<string, IFingerprint>();
         }
-        public void Add(Models.Fingerprint model)
+        public void Add(IFingerprint model)
         {
             _dictionary.TryAdd(model.Hash, model);
         }
 
-        public Models.Fingerprint Get(string hash)
+        public IFingerprint Get(string hash)
         {
             try
             {
