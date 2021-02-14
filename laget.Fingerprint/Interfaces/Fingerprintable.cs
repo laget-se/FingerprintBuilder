@@ -2,6 +2,6 @@
 {
     public interface IFingerprintable
     {
-        IFingerprint ToFingerprint { get; }
+        IFingerprint Fingerprint { get; }
     }
 }

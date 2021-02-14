@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using laget.Fingerprint.Interfaces;
 
 namespace laget.Fingerprint.Stores
@@ -12,6 +13,7 @@ namespace laget.Fingerprint.Stores
         {
             _dictionary = new ConcurrentDictionary<string, IFingerprint>();
         }
+
         public void Add(IFingerprint model)
         {
             _dictionary.TryAdd(model.Hash, model);
@@ -40,5 +42,7 @@ namespace laget.Fingerprint.Stores
         {
             return _dictionary.ContainsKey(hash);
         }
+
+        public IEnumerable<IFingerprint> Items => _dictionary.Values;
     }
 }

@@ -1,4 +1,5 @@
-﻿using laget.Fingerprint.Interfaces;
+﻿using System.Collections.Generic;
+using laget.Fingerprint.Interfaces;
 using laget.Fingerprint.Stores;
 
 namespace laget.Fingerprint
@@ -9,6 +10,8 @@ namespace laget.Fingerprint
         IFingerprint Get(string hash);
         void Remove(string hash);
         bool Exists(string hash);
+
+        IEnumerable<IFingerprint> Items { get; }
     }
 
     public class FingerprintManager<T> : IFingerprintManager<T> where T : IFingerprintable
@@ -39,5 +42,7 @@ namespace laget.Fingerprint
         {
             return _store.Exists(hash);
         }
+
+        public IEnumerable<IFingerprint> Items => _store.Items;
     }
 }
