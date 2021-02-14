@@ -3,6 +3,5 @@
     public interface IFingerprintable
     {
         IFingerprint ToFingerprint { get; }
-        bool HasChanged { get; }
     }
 }
