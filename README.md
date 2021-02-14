@@ -6,7 +6,7 @@ Calculates a fingerprint (hash) for an object that can be stored in Memory or a 
 
 ## Usage
 ```c#
-public class User
+public class User : IFingerprintable
 {
     private readonly Func<User, byte[]> _fingerprintBuilder;
 
