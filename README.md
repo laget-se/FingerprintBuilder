@@ -27,7 +27,7 @@ public class User
     public string Email { get; set; }
     public DateTime LastActive { get; set; } = DateTime.Now;
 
-    public IFingerprint ToFingerprint => new Fingerprint
+    public IFingerprint Fingerprint => new Fingerprint
     {
         Hash = _fingerprintBuilder(this).ToUpperHexString(),
         Data = new
