@@ -7,7 +7,7 @@ namespace laget.Fingerprint.Tests
 {
     public class FingerprintManagerTests
     {
-        private readonly IFingerprintManager<Models.User, Models.Fingerprint> _fingerprintManager;
+        private readonly IFingerprintManager<Models.Fingerprint, Models.User> _fingerprintManager;
 
         private static Models.User User => new Models.User
         {
@@ -19,7 +19,7 @@ namespace laget.Fingerprint.Tests
 
         public FingerprintManagerTests()
         {
-            _fingerprintManager = new FingerprintManager<Models.User, Models.Fingerprint>(new MemoryStore<Models.Fingerprint>());
+            _fingerprintManager = new FingerprintManager<Models.Fingerprint, Models.User>(new MemoryStore<Models.Fingerprint>());
 
             _fingerprintManager.Add(User.Fingerprint);
         }

@@ -5,6 +5,60 @@ Calculates a fingerprint (hash) for an object that can be stored in Memory or a 
 ![Nuget](https://img.shields.io/nuget/dt/laget.Fingerprint)
 
 ## Usage
+### Model
+> Since we do not supply a default implementation of the fingerprint model you need to implement one yourself!
+```c#
+public class Fingerprint : IFingerprint
+{
+    public string Hash { get; set; }
+
+    public object Data { get; set; }
+    public object Metadata { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+
+    public override bool Equals(object obj)
+    {
+        if (!(obj is IFingerprint))
+        {
+            return false;
+        }
+
+        if (ReferenceEquals(obj, this))
+        {
+            return true;
+        }
+        var fingerprint = (IFingerprint)obj;
+        if (Hash == null)
+        {
+            return fingerprint.Hash == null;
+        }
+        return Hash.Equals(fingerprint.Hash, StringComparison.OrdinalIgnoreCase);
+    }
+
+    public override int GetHashCode()
+    {
+        return Hash.GetHashCode();
+    }
+
+    public static bool operator ==(Fingerprint lhs, Fingerprint rhs)
+    {
+        if (ReferenceEquals(lhs, null))
+        {
+            return ReferenceEquals(rhs, null);
+        }
+        return lhs.Equals(rhs);
+    }
+
+    public static bool operator !=(Fingerprint lhs, Fingerprint rhs)
+    {
+        return !(lhs == rhs);
+    }
+}
+```
+
+### Object
+> This is the object which you like to fingerprint!
 ```c#
 public class User : IFingerprintable
 {
@@ -42,5 +96,20 @@ public class User : IFingerprintable
             LastActive
         }
     };
+}
+```
+
+### Autofac
+```c#
+public class FingerprintModule : Module
+{
+    protected override void Load(ContainerBuilder builder)
+    {
+        builder.RegisterType<Fingerprint>().As<IFingerprint>();
+
+        builder.Register<IFingerprintManager<Fingerprint, User>>(c =>
+            new FingerprintManager<Fingerprint, User>(new MemoryStore<Fingerprint>())
+        ).SingleInstance();
+    }
 }
 ```
