@@ -108,7 +108,7 @@ public class FingerprintModule : Module
         builder.RegisterType<Fingerprint>().As<IFingerprint>();
 
         builder.Register<IFingerprintManager<Fingerprint, User>>(c =>
-            new FingerprintManager<Fingerprint, User>(new MemoryStore<Fingerprint>())
+            new FingerprintManager<Fingerprint, User>(new DictionaryStore<Fingerprint>())
         ).SingleInstance();
     }
 }

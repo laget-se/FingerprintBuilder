@@ -6,11 +6,11 @@ using laget.Fingerprint.Interfaces;
 
 namespace laget.Fingerprint.Stores
 {
-    public class MemoryStore<TFingerprint> : IStore<TFingerprint> where TFingerprint : IFingerprint
+    public class DictionaryStore<TFingerprint> : IStore<TFingerprint> where TFingerprint : IFingerprint
     {
         private readonly ConcurrentDictionary<string, TFingerprint> _dictionary;
 
-        public MemoryStore()
+        public DictionaryStore()
         {
             _dictionary = new ConcurrentDictionary<string, TFingerprint>();
         }
@@ -20,9 +20,9 @@ namespace laget.Fingerprint.Stores
             _dictionary.TryAdd(model.Hash, model);
         }
 
-        public async Task AddAsync(TFingerprint model)
+        public Task AddAsync(TFingerprint model)
         {
-           await Task.Run(() => Add(model));
+            throw new NotImplementedException();
         }
 
         public TFingerprint Get(string hash)
@@ -39,9 +39,9 @@ namespace laget.Fingerprint.Stores
             }
         }
 
-        public async Task<TFingerprint> GetAsync(string hash)
+        public Task<TFingerprint> GetAsync(string hash)
         {
-            return await Task.Run(() => Get(hash));
+            throw new NotImplementedException();
         }
 
         public void Remove(string hash)
@@ -49,9 +49,9 @@ namespace laget.Fingerprint.Stores
             _dictionary.TryRemove(hash, out _);
         }
 
-        public async Task RemoveAsync(string hash)
+        public Task RemoveAsync(string hash)
         {
-            await Task.Run(() => RemoveAsync(hash));
+            throw new NotImplementedException();
         }
 
         public bool Exists(string hash)
@@ -59,9 +59,9 @@ namespace laget.Fingerprint.Stores
             return _dictionary.ContainsKey(hash);
         }
 
-        public async Task<bool> ExistsAsync(string hash)
+        public Task<bool> ExistsAsync(string hash)
         {
-            return await Task.Run(() => ExistsAsync(hash));
+            throw new NotImplementedException();
         }
 
         public IEnumerable<TFingerprint> Items => _dictionary.Values;
