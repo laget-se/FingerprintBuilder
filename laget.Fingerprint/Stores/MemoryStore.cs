@@ -5,21 +5,21 @@ using laget.Fingerprint.Interfaces;
 
 namespace laget.Fingerprint.Stores
 {
-    public class MemoryStore : IStore
+    public class MemoryStore<TFingerprint> : IStore<TFingerprint> where TFingerprint : IFingerprint
     {
-        private readonly ConcurrentDictionary<string, IFingerprint> _dictionary;
+        private readonly ConcurrentDictionary<string, TFingerprint> _dictionary;
 
         public MemoryStore()
         {
-            _dictionary = new ConcurrentDictionary<string, IFingerprint>();
+            _dictionary = new ConcurrentDictionary<string, TFingerprint>();
         }
 
-        public void Add(IFingerprint model)
+        public void Add(TFingerprint model)
         {
             _dictionary.TryAdd(model.Hash, model);
         }
 
-        public IFingerprint Get(string hash)
+        public TFingerprint Get(string hash)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace laget.Fingerprint.Stores
             }
             catch (ArgumentNullException)
             {
-                return null;
+                return default;
             }
         }
 
@@ -43,6 +43,6 @@ namespace laget.Fingerprint.Stores
             return _dictionary.ContainsKey(hash);
         }
 
-        public IEnumerable<IFingerprint> Items => _dictionary.Values;
+        public IEnumerable<TFingerprint> Items => _dictionary.Values;
     }
 }

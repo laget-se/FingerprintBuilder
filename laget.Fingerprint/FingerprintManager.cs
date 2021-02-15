@@ -1,34 +1,36 @@
 ﻿using System.Collections.Generic;
 using laget.Fingerprint.Interfaces;
-using laget.Fingerprint.Stores;
 
 namespace laget.Fingerprint
 {
-    public interface IFingerprintManager<in T> where T : IFingerprintable
+    public interface IFingerprintManager<TEntity, TFingerprint>
+        where TFingerprint : IFingerprint
     {
         void Add(IFingerprint model);
-        IFingerprint Get(string hash);
+        TFingerprint Get(string hash);
         void Remove(string hash);
         bool Exists(string hash);
 
-        IEnumerable<IFingerprint> Items { get; }
+        IEnumerable<TFingerprint> Items { get; }
     }
 
-    public class FingerprintManager<T> : IFingerprintManager<T> where T : IFingerprintable
+    public class FingerprintManager<TEntity, TFingerprint> : IFingerprintManager<TEntity, TFingerprint>
+        where TEntity : IFingerprintable
+        where TFingerprint : IFingerprint
     {
-        private readonly IStore _store;
+        private readonly IStore<TFingerprint> _store;
 
-        public FingerprintManager(IStore store)
+        public FingerprintManager(IStore<TFingerprint> store)
         {
             _store = store;
         }
 
         public void Add(IFingerprint model)
         {
-            _store.Add(model);
+            _store.Add((TFingerprint)model);
         }
 
-        public IFingerprint Get(string hash)
+        public TFingerprint Get(string hash)
         {
             return _store.Get(hash);
         }
@@ -43,6 +45,6 @@ namespace laget.Fingerprint
             return _store.Exists(hash);
         }
 
-        public IEnumerable<IFingerprint> Items => _store.Items;
+        public IEnumerable<TFingerprint> Items => _store.Items;
     }
 }
