@@ -1,8 +1,24 @@
-﻿# laget.Fingerprint
+# laget.Fingerprint
 Calculates a fingerprint (hash) for an object that can be stored in Memory or a persistent data store.
 
 ![Nuget](https://img.shields.io/nuget/v/laget.Fingerprint)
 ![Nuget](https://img.shields.io/nuget/dt/laget.Fingerprint)
+
+## Configuration
+> This example is shown using Autofac since this is the go-to IoC for us.
+```c#
+public class FingerprintModule : Module
+{
+    protected override void Load(ContainerBuilder builder)
+    {
+        builder.RegisterType<Fingerprint>().As<IFingerprint>();
+
+        builder.Register<IFingerprintManager<Fingerprint, User>>(c =>
+            new FingerprintManager<Fingerprint, User>(new DictionaryStore<Fingerprint>())
+        ).SingleInstance();
+    }
+}
+```
 
 ## Usage
 ### Model
@@ -96,20 +112,5 @@ public class User : IFingerprintable
             LastActive
         }
     };
-}
-```
-
-### Autofac
-```c#
-public class FingerprintModule : Module
-{
-    protected override void Load(ContainerBuilder builder)
-    {
-        builder.RegisterType<Fingerprint>().As<IFingerprint>();
-
-        builder.Register<IFingerprintManager<Fingerprint, User>>(c =>
-            new FingerprintManager<Fingerprint, User>(new DictionaryStore<Fingerprint>())
-        ).SingleInstance();
-    }
 }
 ```
