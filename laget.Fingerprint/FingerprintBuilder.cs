@@ -38,10 +38,8 @@ namespace laget.Fingerprint
         public IFingerprintBuilder<T> For<TProperty>(Expression<Func<T, TProperty>> expression, Expression<Func<TProperty, string>> fingerprint) =>
             For<TProperty, string>(expression, fingerprint);
 
-        public IFingerprintBuilder<T> For<TProperty>(Expression<Func<T, TProperty>> expression, Expression<Func<TProperty, TProperty>> fingerprint)
-        {
-            return For<TProperty, TProperty>(expression, fingerprint);
-        }
+        public IFingerprintBuilder<T> For<TProperty>(Expression<Func<T, TProperty>> expression, Expression<Func<TProperty, TProperty>> fingerprint) =>
+            For<TProperty, TProperty>(expression, fingerprint);
 
         private IFingerprintBuilder<T> For<TProperty, TPropertyType>(Expression<Func<T, TProperty>> expression, Expression<Func<TProperty, TPropertyType>> fingerprint)
         {

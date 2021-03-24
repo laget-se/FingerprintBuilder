@@ -1,4 +1,4 @@
-# laget.Fingerprint
+﻿# laget.Fingerprint
 Calculates a fingerprint (hash) for an object that can be stored in Memory or a persistent data store.
 
 ![Nuget](https://img.shields.io/nuget/v/laget.Fingerprint)
@@ -114,3 +114,22 @@ public class User : IFingerprintable
     };
 }
 ```
+
+## Benchmarks
+```ini
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
+AMD Ryzen Threadripper 3960X, 1 CPU, 12 logical and 12 physical cores
+.NET Core SDK=5.0.201
+  [Host]     : .NET Core 3.1.13 (CoreCLR 4.700.21.11102, CoreFX 4.700.21.11602), X64 RyuJIT
+  Job-IQNQYN : .NET Core 3.1.13 (CoreCLR 4.700.21.11102, CoreFX 4.700.21.11602), X64 RyuJIT
+
+Runtime=.NET Core 3.1  IterationCount=50  LaunchCount=2
+RunStrategy=Throughput  WarmupCount=10
+```
+
+|              Method |     Mean |     Error |    StdDev |   Median |      Min |      Max |
+|-------------------- |---------:|----------:|----------:|---------:|---------:|---------:|
+|    MD5_Hex | 4.309 us | 0.0170 us | 0.0474 us | 4.298 us | 4.242 us | 4.486 us |
+|   SHA1_Hex | 4.540 us | 0.0153 us | 0.0415 us | 4.544 us | 4.403 us | 4.636 us |
+| SHA256_Hex | 4.879 us | 0.0171 us | 0.0494 us | 4.876 us | 4.753 us | 5.011 us |
+| SHA512_Hex | 7.278 us | 0.1210 us | 0.3471 us | 7.142 us | 6.868 us | 8.219 us |
