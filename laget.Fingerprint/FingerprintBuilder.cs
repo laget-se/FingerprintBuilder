@@ -19,18 +19,18 @@ namespace laget.Fingerprint
 
     public class FingerprintBuilder<T> : IFingerprintBuilder<T>
     {
-        private readonly Func<byte[], byte[]> _hash;
+        private readonly Func<byte[], byte[]> _computeHash;
 
         private readonly IDictionary<string, Func<T, object>> _fingerprints;
 
-        internal FingerprintBuilder(Func<byte[], byte[]> hash)
+        internal FingerprintBuilder(Func<byte[], byte[]> computeHash)
         {
-            _hash = hash ?? throw new ArgumentNullException(nameof(hash));
+            _computeHash = computeHash ?? throw new ArgumentNullException(nameof(computeHash));
             _fingerprints = new SortedDictionary<string, Func<T, object>>(StringComparer.OrdinalIgnoreCase);
         }
 
-        public static IFingerprintBuilder<T> Create(Func<byte[], byte[]> hash) =>
-            new FingerprintBuilder<T>(hash);
+        public static IFingerprintBuilder<T> Create(Func<byte[], byte[]> computeHash) =>
+            new FingerprintBuilder<T>(computeHash);
 
         public IFingerprintBuilder<T> For<TProperty>(Expression<Func<T, TProperty>> expression) =>
             For<TProperty>(expression, _ => _);
@@ -77,8 +77,8 @@ namespace laget.Fingerprint
                     }
                     var arr = memory.ToArray();
 
-                    lock (_hash)
-                        return _hash(arr);
+                    lock (_computeHash)
+                        return _computeHash(arr);
                 }
             };
         }

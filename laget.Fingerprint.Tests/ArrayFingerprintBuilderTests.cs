@@ -17,11 +17,16 @@ namespace laget.Fingerprint.Tests
                 .For(p => p.Emails)
                 .Build();
 
-            var user = new ExtendedUser { Firstname = "John", Lastname = "Doe", Emails = new[] { "test@test.com", "test1@test.com" } };
+            var user = new ExtendedUser
+            {
+                Firstname = "John",
+                Lastname = "Doe",
+                Emails = new[] { "test@test.com", "test1@test.com" }
+            };
 
             var hash = fingerprint(user).ToLowerHexString();
 
-            Assert.Equal("910247a24d302fbea05d2699ed73ce6c351743f1", hash);
+            Assert.Equal("46197041b3a64b3c71f3d1813a0b7a478a3a7a92", hash);
         }
 
         [Fact]
@@ -34,11 +39,16 @@ namespace laget.Fingerprint.Tests
                 .For(p => p.Emails, emails => string.Join("|", emails))
                 .Build();
 
-            var user = new ExtendedUser { Firstname = "John", Lastname = "Doe", Emails = new[] { "test@test.com", "test1@test.com" } };
+            var user = new ExtendedUser
+            {
+                Firstname = "John",
+                Lastname = "Doe",
+                Emails = new[] { "test@test.com", "test1@test.com" }
+            };
 
             var hash = fingerprint(user).ToLowerHexString();
 
-            Assert.Equal("307de22ecb4eb4c4825cac107d891838dc6c86a7", hash);
+            Assert.Equal("472ea61f0548a37904f0c95afa526e87061d8e49", hash);
         }
     }
 }
