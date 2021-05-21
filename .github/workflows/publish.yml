@@ -42,4 +42,4 @@ jobs:
         PROJECT_FILE_PATH: laget.Fingerprint/laget.Fingerprint.csproj
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
         NUSPEC_FILE: laget.Fingerprint.nuspec
-        VERSION_STATIC: "1.1.${{github.run_number}}"
+        VERSION_STATIC: "1.2.${{github.run_number}}"
