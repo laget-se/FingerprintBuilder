@@ -1,8 +1,8 @@
-﻿using System;
+﻿using laget.Fingerprint.Interfaces;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using laget.Fingerprint.Interfaces;
 
 namespace laget.Fingerprint.Stores
 {
@@ -20,9 +20,9 @@ namespace laget.Fingerprint.Stores
             _dictionary.TryAdd(model.Hash, model);
         }
 
-        public Task AddAsync(TFingerprint model)
+        public async Task AddAsync(TFingerprint model)
         {
-            throw new NotImplementedException();
+            await Task.Run(() => Add(model));
         }
 
         public TFingerprint Get(string hash)
@@ -39,9 +39,9 @@ namespace laget.Fingerprint.Stores
             }
         }
 
-        public Task<TFingerprint> GetAsync(string hash)
+        public async Task<TFingerprint> GetAsync(string hash)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() => Get(hash));
         }
 
         public void Remove(string hash)
@@ -49,9 +49,9 @@ namespace laget.Fingerprint.Stores
             _dictionary.TryRemove(hash, out _);
         }
 
-        public Task RemoveAsync(string hash)
+        public async Task RemoveAsync(string hash)
         {
-            throw new NotImplementedException();
+            await Task.Run(() => Remove(hash));
         }
 
         public bool Exists(string hash)
@@ -59,9 +59,9 @@ namespace laget.Fingerprint.Stores
             return _dictionary.ContainsKey(hash);
         }
 
-        public Task<bool> ExistsAsync(string hash)
+        public async Task<bool> ExistsAsync(string hash)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() => Exists(hash));
         }
 
         public IEnumerable<TFingerprint> Items => _dictionary.Values;
