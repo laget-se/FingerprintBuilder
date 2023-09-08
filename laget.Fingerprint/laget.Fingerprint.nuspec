@@ -4,7 +4,7 @@
     <id>laget.Fingerprint</id>
     <title>Fingerprint</title>
     <version>$version$</version>
-    <authors>gonace,laget.se</authors>
+    <authors>laget.se</authors>
     <owners>laget.se</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Calculates a fingerprint (hash) for an object that can be stored in Memory or a persistent data store.</description>
