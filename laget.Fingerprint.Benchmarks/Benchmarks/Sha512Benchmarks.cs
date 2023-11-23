@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 
 namespace laget.Fingerprint.Benchmarks.Benchmarks
 {
+    [MemoryDiagnoser]
     [MeanColumn, MinColumn, MaxColumn, MedianColumn]
     [SimpleJob(RunStrategy.Throughput, RuntimeMoniker.Net80, 2, 10, 50)]
     public class Sha512Benchmarks
