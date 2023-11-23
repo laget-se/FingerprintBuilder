@@ -1,7 +1,7 @@
-﻿using System;
-using System.Security.Cryptography;
-using laget.Fingerprint.Extensions;
+﻿using laget.Fingerprint.Extensions;
 using laget.Fingerprint.Interfaces;
+using System;
+using System.Security.Cryptography;
 
 namespace laget.Fingerprint.Tests.Models
 {

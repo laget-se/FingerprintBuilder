@@ -1,6 +1,6 @@
-﻿using System.Security.Cryptography;
-using laget.Fingerprint.Extensions;
+﻿using laget.Fingerprint.Extensions;
 using laget.Fingerprint.Tests.Models;
+using System.Security.Cryptography;
 using Xunit;
 
 namespace laget.Fingerprint.Tests
@@ -24,7 +24,9 @@ namespace laget.Fingerprint.Tests
 
             var hash = fingerprint(user).ToLowerHexString();
 
-            Assert.Equal("a4aca7cce7e349205f08a25a38267ffcf05c60ed", hash);
+            const string expectedHash = "1992cac23b505a626e03a3cc7ec6665b0ed5f2db";
+
+            Assert.Equal(expectedHash, hash);
         }
 
         [Fact]
@@ -42,16 +44,14 @@ namespace laget.Fingerprint.Tests
                 Lastname = "Doe"
             };
 
-            const string expectedHash = "b40d1e3afbe61730fa1daae2a539ad730ea09b0a";
-
             var hash = fingerprint(user).ToLowerHexString();
-
-            Assert.Equal(expectedHash, hash);
-
             user.Firstname = user.Firstname.ToLowerInvariant();
             user.Lastname = user.Lastname.ToLowerInvariant();
-
             var hash1 = fingerprint(user).ToLowerHexString();
+
+            const string expectedHash = "6e7b222a846fa6033d2555b1f3301fe9932dad05";
+
+            Assert.Equal(expectedHash, hash);
             Assert.Equal(expectedHash, hash1);
         }
 
@@ -73,8 +73,10 @@ namespace laget.Fingerprint.Tests
             var hashLower = fingerprint(user).ToLowerHexString();
             var hashUpper = fingerprint(user).ToUpperHexString();
 
-            Assert.Equal("00b93d68198f13544cf71b96b7dcfc29a33014d20c0878cc434617482b65d2d2", hashLower);
-            Assert.Equal("00b93d68198f13544cf71b96b7dcfc29a33014d20c0878cc434617482b65d2d2".ToUpperInvariant(), hashUpper);
+            const string expectedHash = "21da793524932fea997f7054bbd77a99cd2ee153199740be129f868c1134dc74";
+
+            Assert.Equal(expectedHash, hashLower);
+            Assert.Equal(expectedHash.ToUpperInvariant(), hashUpper);
         }
 
         [Fact]
@@ -92,16 +94,14 @@ namespace laget.Fingerprint.Tests
                 Lastname = "Doe"
             };
 
-            const string expectedHash = "d53e54efc3c01db03d6494f95880d53349951a3af3fd6b1fd9459605ad3baeb7";
-
             var hash = fingerprint(user).ToLowerHexString();
-
-            Assert.Equal(expectedHash, hash);
-
             user.Firstname = user.Firstname.ToLowerInvariant();
             user.Lastname = user.Lastname.ToLowerInvariant();
-
             var hash1 = fingerprint(user).ToLowerHexString();
+
+            const string expectedHash = "c1919a2bb337408cc657e13ce969455ad8799923d6641d2d1fabe8fe7bc9d943";
+
+            Assert.Equal(expectedHash, hash);
             Assert.Equal(expectedHash, hash1);
         }
 
@@ -123,8 +123,10 @@ namespace laget.Fingerprint.Tests
             var hashLower = fingerprint(user).ToLowerHexString();
             var hashUpper = fingerprint(user).ToUpperHexString();
 
-            Assert.Equal("bc09471d63bdb0604a30cb0de118ec2b48153a1b7fe813fcad0974c44094b0a480bc3d158b52a6842756994c437afb7742d973371be440a46c2b5cfeb5d7dcd6", hashLower);
-            Assert.Equal("bc09471d63bdb0604a30cb0de118ec2b48153a1b7fe813fcad0974c44094b0a480bc3d158b52a6842756994c437afb7742d973371be440a46c2b5cfeb5d7dcd6".ToUpperInvariant(), hashUpper);
+            const string expectedHash = "59be4f006778ec18d8c6ddfe7068f113711c8f279afc4f9f287eaf0857c125de0b44e1c8bca86dedc4491294c69014d911545f9c9e04c37c9a8a9396a97c5a56";
+
+            Assert.Equal(expectedHash, hashLower);
+            Assert.Equal(expectedHash.ToUpperInvariant(), hashUpper);
         }
 
         [Fact]
@@ -144,7 +146,9 @@ namespace laget.Fingerprint.Tests
 
             var hash = fingerprint(user).ToLowerHexString();
 
-            Assert.Equal("5ab5aeba11346413348fb7c9361058e016ecf3ca", hash);
+            const string expectedHash = "2e2a2813f314668223c79f0bc819b39ce71810ca";
+
+            Assert.Equal(expectedHash, hash);
         }
     }
 }

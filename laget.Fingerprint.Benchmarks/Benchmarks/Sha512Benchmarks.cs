@@ -1,15 +1,15 @@
-﻿using System;
-using System.Security.Cryptography;
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
 using BenchmarkDotNet.Jobs;
 using laget.Fingerprint.Benchmarks.Models;
 using laget.Fingerprint.Extensions;
+using System;
+using System.Security.Cryptography;
 
 namespace laget.Fingerprint.Benchmarks.Benchmarks
 {
     [MeanColumn, MinColumn, MaxColumn, MedianColumn]
-    [SimpleJob(RunStrategy.Throughput, RuntimeMoniker.NetCoreApp31, 2, 10, 50)]
+    [SimpleJob(RunStrategy.Throughput, RuntimeMoniker.Net80, 2, 10, 50)]
     public class Sha512Benchmarks
     {
         private Func<User, byte[]> _sha512;

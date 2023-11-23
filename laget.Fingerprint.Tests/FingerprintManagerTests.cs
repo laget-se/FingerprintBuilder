@@ -1,5 +1,6 @@
-﻿using System;
-using laget.Fingerprint.Stores;
+﻿using laget.Fingerprint.Stores;
+using System;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace laget.Fingerprint.Tests
@@ -32,9 +33,11 @@ namespace laget.Fingerprint.Tests
         }
 
         [Fact]
-        public void ShouldReturnFingerprintIfItExistAsync()
+        public async Task ShouldReturnFingerprintIfItExistAsync()
         {
-            Assert.ThrowsAsync<NotImplementedException>(async () => await _fingerprintManager.GetAsync(User.Fingerprint.Hash));
+            var actual = await _fingerprintManager.GetAsync(User.Fingerprint.Hash);
+
+            Assert.NotNull(actual);
         }
 
         [Fact]
@@ -46,9 +49,11 @@ namespace laget.Fingerprint.Tests
         }
 
         [Fact]
-        public void ShouldReturnTrueIfFingerprintExistAsync()
+        public async Task ShouldReturnTrueIfFingerprintExistAsync()
         {
-            Assert.ThrowsAsync<NotImplementedException>(async () => await _fingerprintManager.ExistsAsync(User.Fingerprint.Hash));
+            var actual = await _fingerprintManager.ExistsAsync(User.Fingerprint.Hash);
+
+            Assert.True(actual);
         }
 
         [Fact]
@@ -68,7 +73,7 @@ namespace laget.Fingerprint.Tests
         }
 
         [Fact]
-        public void ShouldReturnFalseIfFingerprintDoesNotExistAsync()
+        public async Task ShouldReturnFalseIfFingerprintDoesNotExistAsync()
         {
             var user = new Models.User
             {
@@ -78,7 +83,9 @@ namespace laget.Fingerprint.Tests
                 LastActive = DateTime.Now.AddMonths(-1)
             };
 
-            Assert.ThrowsAsync<NotImplementedException>(async () => await _fingerprintManager.ExistsAsync(user.Fingerprint.Hash));
+            var actual = await _fingerprintManager.ExistsAsync(user.Fingerprint.Hash);
+
+            Assert.False(actual);
         }
 
         [Fact]
@@ -87,12 +94,6 @@ namespace laget.Fingerprint.Tests
             _fingerprintManager.Remove(User.Fingerprint.Hash);
 
             Assert.Empty(_fingerprintManager.Items);
-        }
-
-        [Fact]
-        public void ShouldRemoveFingerprintIfItExistAsync()
-        {
-            Assert.ThrowsAsync<NotImplementedException>(async () => await _fingerprintManager.RemoveAsync(User.Fingerprint.Hash));
         }
     }
 }

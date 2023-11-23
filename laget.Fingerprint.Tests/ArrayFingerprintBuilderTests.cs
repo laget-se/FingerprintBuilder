@@ -1,6 +1,6 @@
-﻿using System.Security.Cryptography;
-using laget.Fingerprint.Extensions;
+﻿using laget.Fingerprint.Extensions;
 using laget.Fingerprint.Tests.Models;
+using System.Security.Cryptography;
 using Xunit;
 
 namespace laget.Fingerprint.Tests
@@ -26,7 +26,9 @@ namespace laget.Fingerprint.Tests
 
             var hash = fingerprint(user).ToLowerHexString();
 
-            Assert.Equal("46197041b3a64b3c71f3d1813a0b7a478a3a7a92", hash);
+            const string expectedHash = "574458180eb2cfee226d35de6f346d99549f3d09";
+
+            Assert.Equal(expectedHash, hash);
         }
 
         [Fact]
@@ -48,7 +50,9 @@ namespace laget.Fingerprint.Tests
 
             var hash = fingerprint(user).ToLowerHexString();
 
-            Assert.Equal("472ea61f0548a37904f0c95afa526e87061d8e49", hash);
+            const string expectedHash = "0ea8484c3503de7209753aa11fe8321181298e7a";
+
+            Assert.Equal(expectedHash, hash);
         }
     }
 }

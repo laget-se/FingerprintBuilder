@@ -1,5 +1,5 @@
-﻿using System;
-using laget.Fingerprint.Interfaces;
+﻿using laget.Fingerprint.Interfaces;
+using System;
 
 namespace laget.Fingerprint.Tests.Models
 {

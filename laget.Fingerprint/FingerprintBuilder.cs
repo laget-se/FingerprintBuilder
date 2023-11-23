@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Linq.Expressions;
-using System.Runtime.Serialization.Formatters.Binary;
 
 namespace laget.Fingerprint
 {
@@ -45,9 +45,10 @@ namespace laget.Fingerprint
         {
             if (!(expression.Body is MemberExpression memberExpression))
                 throw new ArgumentException("Expression must be a member expression");
-
             if (_fingerprints.ContainsKey(memberExpression.Member.Name))
                 throw new ArgumentException($"Member {memberExpression.Member.Name} has already been added.");
+            if (!_supportedTypes.Contains(typeof(TPropertyType)))
+                throw new ArgumentException($"Unsupported Type: {typeof(TPropertyType).Name}");
 
             var getValue = expression.Compile();
             var getFingerprint = fingerprint.Compile();
@@ -63,17 +64,68 @@ namespace laget.Fingerprint
 
         public Func<T, byte[]> Build()
         {
-            var binaryFormatter = new BinaryFormatter();
-
             return obj =>
             {
                 using (var memory = new MemoryStream())
+                using (var writer = new BinaryWriter(memory))
                 {
                     foreach (var item in _fingerprints)
                     {
-                        var graph = item.Value(obj);
-                        if (graph != null)
-                            binaryFormatter.Serialize(memory, graph);
+                        var value = item.Value(obj);
+                        switch (value)
+                        {
+                            case bool typed:
+                                writer.Write(typed);
+                                break;
+                            case byte typed:
+                                writer.Write(typed);
+                                break;
+                            case sbyte typed:
+                                writer.Write(typed);
+                                break;
+                            case byte[] typed:
+                                writer.Write(typed);
+                                break;
+                            case char typed:
+                                writer.Write(typed);
+                                break;
+                            case char[] typed:
+                                writer.Write(typed);
+                                break;
+                            case double typed:
+                                writer.Write(typed);
+                                break;
+                            case decimal typed:
+                                writer.Write(typed);
+                                break;
+                            case short typed:
+                                writer.Write(typed);
+                                break;
+                            case ushort typed:
+                                writer.Write(typed);
+                                break;
+                            case int typed:
+                                writer.Write(typed);
+                                break;
+                            case uint typed:
+                                writer.Write(typed);
+                                break;
+                            case long typed:
+                                writer.Write(typed);
+                                break;
+                            case ulong typed:
+                                writer.Write(typed);
+                                break;
+                            case float typed:
+                                writer.Write(typed);
+                                break;
+                            case string typed:
+                                writer.Write(typed);
+                                break;
+                            case string[] typed:
+                                writer.Write(string.Join("", typed));
+                                break;
+                        }
                     }
                     var arr = memory.ToArray();
 
@@ -82,5 +134,26 @@ namespace laget.Fingerprint
                 }
             };
         }
+
+        private readonly Type[] _supportedTypes =
+        {
+            typeof(bool),
+            typeof(byte),
+            typeof(sbyte),
+            typeof(byte[]),
+            typeof(char),
+            typeof(char[]),
+            typeof(string),
+            typeof(string[]),
+            typeof(float),
+            typeof(double),
+            typeof(decimal),
+            typeof(short),
+            typeof(ushort),
+            typeof(int),
+            typeof(uint),
+            typeof(long),
+            typeof(ulong)
+        };
     }
 }

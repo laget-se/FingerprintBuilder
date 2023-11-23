@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using laget.Fingerprint.Interfaces;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using laget.Fingerprint.Interfaces;
 
 namespace laget.Fingerprint
 {
