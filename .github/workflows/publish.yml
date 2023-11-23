@@ -34,6 +34,6 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - run: dotnet restore
-    - run: dotnet build --configuration Release laget.Limiter/laget.Limiter.csproj
-    - run: dotnet pack --configuration Release laget.Limiter/laget.Limiter.csproj --no-build -p:Version=${{vars.VERSION}}.${{github.run_number}} -p:PackageVersion=${{vars.VERSION}}.${{github.run_number}} -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:NuspecFile=laget.Limiter.nuspec
-    - run: dotnet nuget push laget.Limiter/bin/Release/laget.Limiter.${{vars.VERSION}}.${{github.run_number}}.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
+    - run: dotnet build --configuration Release laget.Fingerprint/laget.Fingerprint.csproj
+    - run: dotnet pack --configuration Release laget.Fingerprint/laget.Fingerprint.csproj --no-build -p:Version=${{vars.VERSION}}.${{github.run_number}} -p:PackageVersion=${{vars.VERSION}}.${{github.run_number}} -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:NuspecFile=laget.Fingerprint.nuspec
+    - run: dotnet nuget push laget.Fingerprint/bin/Release/laget.Fingerprint.${{vars.VERSION}}.${{github.run_number}}.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
