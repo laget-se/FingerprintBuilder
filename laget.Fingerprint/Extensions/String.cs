@@ -7,7 +7,7 @@ namespace laget.Fingerprint.Extensions
     public static class String
     {
         /// <summary>
-        ///     Convert to LowerCase Hexadecimal string
+        /// Convert to LowerCase Hexadecimal string
         /// </summary>
         public static string ToLowerHexString(this byte[] source)
         {
@@ -15,7 +15,7 @@ namespace laget.Fingerprint.Extensions
         }
 
         /// <summary>
-        ///     Convert to LowerCase Hexadecimal string
+        /// Convert to LowerCase Hexadecimal string
         /// </summary>
         public static string ToUpperHexString(this byte[] source)
         {
@@ -23,7 +23,7 @@ namespace laget.Fingerprint.Extensions
         }
 
         /// <summary>
-        ///     Convert to string
+        /// Convert to string
         /// </summary>
         private static string ToString(this byte[] source, string format)
         {

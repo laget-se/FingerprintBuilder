@@ -46,9 +46,9 @@ namespace laget.Fingerprint
             if (!(expression.Body is MemberExpression memberExpression))
                 throw new ArgumentException("Expression must be a member expression");
             if (_fingerprints.ContainsKey(memberExpression.Member.Name))
-                throw new ArgumentException($"Member {memberExpression.Member.Name} has already been added.");
+                throw new ArgumentException($"Member {memberExpression.Member.Name} has already been added.", memberExpression.Member.Name);
             if (!_supportedTypes.Contains(typeof(TPropertyType)))
-                throw new ArgumentException($"Unsupported Type: {typeof(TPropertyType).Name}");
+                throw new ArgumentException($"Unsupported Type: {typeof(TPropertyType).Name}", memberExpression.Member.Name);
 
             var getValue = expression.Compile();
             var getFingerprint = fingerprint.Compile();
@@ -122,9 +122,6 @@ namespace laget.Fingerprint
                             case string typed:
                                 writer.Write(typed);
                                 break;
-                            case string[] typed:
-                                writer.Write(string.Join("", typed));
-                                break;
                         }
                     }
                     var arr = memory.ToArray();
@@ -139,21 +136,20 @@ namespace laget.Fingerprint
         {
             typeof(bool),
             typeof(byte),
-            typeof(sbyte),
             typeof(byte[]),
+            typeof(sbyte),
             typeof(char),
             typeof(char[]),
-            typeof(string),
-            typeof(string[]),
-            typeof(float),
-            typeof(double),
             typeof(decimal),
+            typeof(double),
+            typeof(float),
             typeof(short),
             typeof(ushort),
             typeof(int),
             typeof(uint),
             typeof(long),
-            typeof(ulong)
+            typeof(ulong),
+            typeof(string)
         };
     }
 }
