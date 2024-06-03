@@ -133,3 +133,18 @@ RunStrategy=Throughput  WarmupCount=10
 | SHA1_Hex | 985.2 ns | 3.80 ns | 11.21 ns | 963.1 ns | 1,012.8 ns | 986.1 ns |
 | SHA256_Hex | 1.167 us | 0.0053 us | 0.0157 us | 1.135 us | 1.206 us | 1.168 us |
 | SHA512_Hex | 2.066 us | 0.0153 us | 0.0452 us | 2.006 us | 2.172 us | 2.054 us |
+
+## Stores
+### Mongo
+> This example is shown using Autofac since this is the go-to IoC for us.
+```c#
+public class FingerprintModule : Module
+{
+    protected override void Load(ContainerBuilder builder)
+    {
+        builder.Register<IFingerprintManager<Fingerprint, User>>(c =>
+            new FingerprintManager<Fingerprint, User>(new MongoStore<Fingerprint, User>(new MongoUrl(c.Resolve<IConfiguration>().GetConnectionString("MongoConnectionString"))))
+        ).SingleInstance();
+    }
+}
+```
